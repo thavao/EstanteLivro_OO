@@ -63,27 +63,24 @@ Console.Write("Defina o tamanho da estante: ");
 tamanhoEstante = int.Parse(Console.ReadLine());
 
 Livro[] estante = new Livro[tamanhoEstante];
+estante = InserirLivrosNaEstante(estante);
 
 
 do
 {
     Console.WriteLine("Escolha uma opção: ");
-    Console.WriteLine("1 - Inserir livros na estante");
-    Console.WriteLine("2 - Ver livros da estante");
-    Console.WriteLine("3 - Ver 1 livro da estante");
+    Console.WriteLine("1 - Ver livros da estante");
+    Console.WriteLine("2 - Ver 1 livro da estante");
     opcao = int.Parse(Console.ReadLine());
 
     switch (opcao)
     {
         case 1:
-            estante = InserirLivrosNaEstante(estante);
-            break;
-        case 2:
             ImprimirEstante(estante);
             break;
-        case 3:
+        case 2:
             Console.WriteLine("Digite a posição do livro na estante");
-            ImprimirLivroEspecifico(estante, int.Parse(Console.ReadLine()) + 1);
+            ImprimirLivroEspecifico(estante, int.Parse(Console.ReadLine()) - 1);
             break;
         default:
             Console.WriteLine("Opção inválida, tente novamente.");
